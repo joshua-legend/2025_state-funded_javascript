@@ -4326,8 +4326,14 @@ const data = [
   },
 ];
 
+const arrow1 = (a, b) => a + b;
+
+const arrow = (a, b) =>  { name: a, age: b };
+
 //1. 화폐를 euro or dollar 사람만 필터링하기
-const quiz1 = data.filter((x) => x.currency == "Euro" || x.currency == "Dollar");
+const quiz1 = data.filter((x) => {
+  return x.currency == "Euro" || x.currency == "Dollar";
+});
 
 //2. 직업에서 engineer인 사람들만 필터링 하고, 이름,언어,부서,이메일만 나타내기
 const remainObj = (x) => ({ name: x.name, language: x.language, department: x.department, email: x.email });
