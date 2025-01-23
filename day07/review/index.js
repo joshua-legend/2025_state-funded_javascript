@@ -530,13 +530,13 @@ const q3 = data
   .map(({ fullName, mobile, email, gender }) => {
     return { mobile, email, gender, fullName: (fullName && fullName.split(" ")[1]) || "이름 없음" };
   });
-console.log(q3);
+// console.log(q3);
 
 // 4. 앱등이들만 콘솔로 나타내기
 const q4 = data.filter((x) => {
   return x.mobile.includes("Apple") || x.mobile.includes("iphone");
 });
-console.log({ 앱등이들: q4 });
+// console.log({ 앱등이들: q4 });
 
 // 5. ssn의 숫자의 합이 30이 넘는 사람들만 콘솔로 나타내기(하지마)
 const q5 = data.filter((x) => {
@@ -547,6 +547,21 @@ const q5 = data.filter((x) => {
       .reduce((a, c) => a + c) > 30
   );
 });
-console.log(q5);
-
+// console.log(q5);
 // 6. 컨츄리를 중복안되도록 배열로 다시 나타내기 -> [korea,japan,...]
+
+// china,japan,korea,usa,
+
+const q6 = data
+  .map((x) => {
+    return x.country;
+  })
+  .reduce((a, c) => {
+    return a.includes(c) ? a : a + "," + c;
+  })
+  .split(",");
+
+const q7 = new Set(data.map((x) => x.country));
+console.log(q7);
+
+//해도됨?
